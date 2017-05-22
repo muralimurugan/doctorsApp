@@ -10,3 +10,8 @@ $ npm install
 ```sh
 $ npm start
 ```
+
+
+```sh
+$ try with http://localhost:3000/
+````
