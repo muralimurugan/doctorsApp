@@ -15,16 +15,18 @@ Appointment.find({doctor_id:req.user._id}, function(err, data){
 	//res.render('index');
 });
 
-router.get('/bookappointment/:id', ensureAuthenticated, function(req, res){
-	var doctor_id =  req.param('id');;
+router.post('/bookappointment', ensureAuthenticated, function(req, res){
+	var doctor_id =  req.body.doctor_id;
 	var user_id = req.user._id;
 	var user_name=req.user.name;
+	var appointment_time=req.body.appointment_time;
 	var status=0;
 var newUser = new Appointment({
 			doctor_id: doctor_id,
 			user_name:user_name,
 			user_id:user_id,
 			status:status,
+			appointment_time:appointment_time
 			
 		});
 
@@ -48,7 +50,7 @@ router.get('/confirm/:id', ensureAuthenticated, function(req, res){
 	Appointment.update(query, {status:1}, {upsert:true}, function(err, doc){
     if (err) return res.send(500, { error: err });
     
-		req.flash('success_msg', 'Your appointment booked successfully');
+		req.flash('success_msg', 'Appointment Confirmed');
 
 		res.redirect('/');
 });
@@ -61,6 +63,16 @@ router.get('/doctors', ensureAuthenticated, function(req, res){
 User.find({member_type:1}, function(err, data){
         //console.log(">>>> " + data );
 		res.render('doctors',{'list':data});
+    });
+
+	
+});
+
+router.get('/doctors/:id', ensureAuthenticated, function(req, res){
+	
+User.findOne({_id:req.param('id')}, function(err, data){
+        //console.log(">>>> " + data );
+		res.render('appointment',data);
     });
 
 	

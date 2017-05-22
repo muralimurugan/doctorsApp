@@ -34,6 +34,9 @@ var UserSchema = mongoose.Schema({
 	end_time:{
 		type:String
 	},
+	clinic_time:{
+type:Number
+	},
 	department:{
 		type:String
 	}

@@ -15,6 +15,12 @@ type:String
 	doctor_id: {
 		type: ObjectId
 	},
+	appointment_time:{
+     type:String
+	},
+	appointment_date:{
+      type:Date
+	},
 	
 	status:{
         type:Number

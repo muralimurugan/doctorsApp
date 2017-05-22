@@ -33,14 +33,14 @@ router.post('/register', function(req, res){
 	var available_date=req.body.available_date;
 	var start_time=req.body.start_time;
 	var end_time=req.body.end_time;
-
-	
+	var clinic_time=req.body.clinic_time;
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
+	req.checkBody('clinic_time', 'clinic_time is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 
 	req.checkBody('password', 'Password is required').notEmpty();
@@ -58,8 +58,8 @@ router.post('/register', function(req, res){
 			email:email,
 			gender:gender,
 			available_date:available_date,
-			start_time:start_time,
-			end_time:end_time,
+			clinic_time:clinic_time,
+			
 			department:department,
 			member_type:member_type,
 			password: password
