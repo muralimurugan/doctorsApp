@@ -1,0 +1,11 @@
+ <h2 class="page-header">Doctor's list</h2>
+<p>Welcome doctors list page</p>  
+      {{#each list}}
+        <div class="col-lg-12">
+            <h2>{{name}}</h2>
+            <span>{{gender}}</span>
+            <p>{{department}}</p>
+          <a href="/bookappointment/{{id}}" class="btn btn-info">Book Appointment</a>
+            <hr>
+        </div>
+        {{/each}}

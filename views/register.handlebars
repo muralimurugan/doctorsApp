@@ -1,0 +1,53 @@
+<h2 class="page-header">Doctor registration details</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/users/register">
+   <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name">
+    <input type="hidden" name="member_type" value="1">
+  </div>
+   <div class="form-group">
+          <label for="gender">Gender</label>
+          <input type="radio"  name="gender" value="male"> Male
+          <input type="radio"  name="gender" value="female"> Female
+        </div>
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select class="form-control" name="department">
+            <option value="eye-specialist">Eye specialist</option>
+            <option value="ortho">Ortho</option>
+            <option value="child-specialist">Child specialist</option>
+            <option value="skin-specialist">Skin specialist</option>
+           
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="gender">Choose Date</label>
+          
+          <input type="date" class="form-control" name="available_date" value="">
+        </div>
+  <div class="form-group">
+          <label for="gender">Choose Time</label>
+          
+          From: <input type="time" class="form-control" name="start_time" value="">
+           To: <input type="time" class="form-control" name="end_time" value="">
+        </div>
+
+   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Email" name="email">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password2">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
